@@ -1,0 +1,65 @@
+node -v
+npm -v
+
+npm install -g @angular/cli
+
+ng new user-registration-app
+
+cd user-registration-app
+
+ng generate component registration
+
+cd src/app/registration/registration.component.html
+           Ya file made ha code takycha -
+                   <h2>User Registration</h2>
+<form (ngSubmit)="registerUser()">
+  <label>
+    Name:
+    <input type="text" [(ngModel)]="user.name" name="name" required />
+  </label>
+  <br />
+  <label>
+    Email:
+    <input type="email" [(ngModel)]="user.email" name="email" required />
+  </label>
+  <br />
+  <label>
+    Password:
+    <input type="password" [(ngModel)]="user.password" name="password" required />
+  </label>
+  <br />
+  <button type="submit">Register</button>
+</form>
+
+<p *ngIf="submitted">
+  ✅ User Registered: {{ user.name }} ({{ user.email }})
+</p>
+
+
+cd src/app/registration/registration.component.ts
+   Ya file made Code takycha -
+              import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+})
+export class RegistrationComponent {
+  user = {
+    name: '',
+    email: '',
+    password: ''
+  };
+  submitted = false;
+
+  registerUser() {
+    console.log('User registered:', this.user);
+    this.submitted = true;
+  }
+}
+
+
+ng serve
+
+
+Chrome madhe - http://localhost:4200

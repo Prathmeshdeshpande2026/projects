@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User List</title>
+</head>
+<body>
+  <h2>Registered Users</h2>
+  <table border="1" id="userTable">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </table>
+
+  <script>
+    const userData = JSON.parse(localStorage.getItem("users")) || [];
+
+    const table = document.getElementById("userTable");
+
+    userData.forEach(user => {
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <td>${user.password}</td>
+      `;
+    });
+  </script>
+</body>
+</html>

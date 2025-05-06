@@ -1,0 +1,15 @@
+/* Optional: You can use Bootstrap only, but this adds a bit more control */
+#wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+}
+
+#sidebar {
+  width: 250px;
+  min-height: 100vh;
+}
+
+#page-content-wrapper {
+  flex: 1;
+}
